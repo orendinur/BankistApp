@@ -8,4 +8,4 @@ You can login with the following details:
 
 # Click here to check it out :
 
-heuristic-clarke-112c02.netlify.app
+https://heuristic-clarke-112c02.netlify.app/
