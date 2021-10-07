@@ -107,7 +107,6 @@ const calcDisplaySummary = function (acc) {
     .reduce((acc, int) => acc + int, 0);
   labelSumInterest.textContent = `${interest}€`;
 };
-// calcDisplaySummary(account1.movements);
 
 const createUsernames = function (accs) {
   accs.forEach(function (acc) {
@@ -128,7 +127,6 @@ const updateUI = function (acc) {
   //Display summary
   calcDisplaySummary(acc);
 };
-//Event handler
 
 let currentAccount;
 
@@ -138,7 +136,6 @@ btnLogin.addEventListener('click', function (e) {
   currentAccount = accounts.find(
     acc => acc.username === inputLoginUsername.value
   );
-  // console.log(currentAccount);
 
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     //Display UI and welcome message
@@ -210,6 +207,8 @@ btnClose.addEventListener('click', function (e) {
 
     //Hide UI
     containerApp.style.opacity = 0;
+
+    labelWelcome.textContent = 'Log in to get started';
   }
   inputCloseUsername.value = inputClosePin.value = '';
 });
