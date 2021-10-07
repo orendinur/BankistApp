@@ -134,7 +134,7 @@ btnLogin.addEventListener('click', function (e) {
   e.preventDefault();
 
   currentAccount = accounts.find(
-    acc => acc.username === inputLoginUsername.value
+    acc => acc.username === inputLoginUsername.value.toLowerCase()
   );
 
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
