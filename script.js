@@ -1,9 +1,5 @@
 'use strict';
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// BANKIST APP
-
 // Data
 const account1 = {
   owner: 'Oren Dinur',
@@ -64,7 +60,7 @@ const inputClosePin = document.querySelector('.form__input--pin');
 const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
 
-  const movs = sort ? movements.slice.sort((a, b) => a - b) : movements;
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
 
   movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
@@ -218,73 +214,9 @@ btnClose.addEventListener('click', function (e) {
   inputCloseUsername.value = inputClosePin.value = '';
 });
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// LECTURES
-
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
-
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
-const euroToUsd = 1.1;
-const movementsUSD = movements.map(mov => mov * euroToUsd);
-
-const movementsDescription = movements.map(
-  (mov, i) =>
-    `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
-      mov
-    )}`
-);
-
-/////////////////////////////////////////////////
-// const julia = [3, 5, 2, 12, 7];
-// const kate = [4, 1, 15, 8, 3];
-
-// const juliaCopy = julia.slice(1, -1);
-// // console.log(juliaCopy);
-// const dogs = juliaCopy.concat(kate);
-// console.log(dogs);
-
-// dogs.forEach(function (dog, i) {
-//   console.log(
-//     `Dog number ${i + 1} is ${
-//       dog >= 3 ? `Adult and is ${dog} years old` : 'Not adult'
-//     }`
-//   );
-// });
-// const deposits = movements.filter(function (mov) {
-//   return mov < 0;
-// });
-// const withdrawals = movements.filter(function (mov) {
-//   return mov > 0;
-// });
-
-// const ages = [5, 2, 4, 1, 15, 8, 3];
-
-// const calcAverageHumanAge = function (ages) {
-//   const humanAges = ages.map(function (age) {
-//     return age <= 2 ? 2 * age : 16 + age * 4;
-//   });
-//   console.log(humanAges);
-//   const oldDogs = humanAges.filter(function (age) {
-//     return age >= 18;
-//   });
-//   console.log(oldDogs);
-//   const sum = oldDogs.reduce(function (acc, mov) {
-//     return acc + mov;
-//   }, 0);
-//   const avg = sum / oldDogs.length;
-//   console.log(avg);
-// };
-// calcAverageHumanAge(ages);
-// console.log(accounts);
+let sorted = false;
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, sorted);
+  sorted = !sorted;
+});
