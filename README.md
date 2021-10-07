@@ -2,8 +2,10 @@
 
 You can login with the following details:
 
-# user: od
+## user: od
 
-# PIN: 1111
+## PIN: 1111
 
-# Click here to check it out : heuristic-clarke-112c02.netlify.app
+# Click here to check it out :
+
+heuristic-clarke-112c02.netlify.app
